@@ -29,7 +29,7 @@
     
     
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <title>Aquashine - CRM</title>
+    <title>CRM</title>
 </head>
 <body>
 
@@ -42,7 +42,7 @@
 <div class="d-flex align-items-center justify-content-between">
   <a href="#" class="logo d-flex align-items-center">
     <img src="assets/img/logo.png" alt="">
-    <span class="d-none d-lg-block">IWT - CRM</span>
+    <span class="d-none d-lg-block">CRM</span>
   </a>
   <i class="bi bi-list toggle-sidebar-btn"></i>
 </div><!-- End Logo -->
@@ -876,5 +876,6 @@
 
   
 </ul>
+
 
 </aside><!-- End Sidebar-->
