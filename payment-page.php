@@ -74,6 +74,23 @@
                                 // Modify your query to fetch data with assigned technicians
                                 while ($rowAssigned = mysqli_fetch_array($query_run_assigned)) {
                                     // Display the row with assigned technician and an "Edit" button
+
+                                    // Convert jc_create_date (DD-MM-YYYY) to DateTime
+                                    $jcDate = DateTime::createFromFormat('d-m-Y', $rowAssigned["jc_create_date"]);
+                                    $today = new DateTime();
+
+                                    // Calculate difference in days
+                                    $daysDiff = $jcDate->diff($today)->days;
+
+                                    // Decide color based on days difference
+                                    $dateColor = ''; // 0–10 days (default)
+
+                                    if ($daysDiff >= 11 && $daysDiff <= 20) {
+                                        $dateColor = 'orange';
+                                    } elseif ($daysDiff >= 21) {
+                                        $dateColor = 'red';
+                                    }
+
                                     echo '<tr>';
                                     echo '<td>' . $rowAssigned["id"] . '</td>';
                                     echo '<td>' . $rowAssigned["role"] . '</td>';
@@ -81,7 +98,8 @@
                                     echo '<td>' . $rowAssigned["customer_name"] . '</td>';
                                     echo '<td>' . $rowAssigned["company_name"] . '</td>';
                                     echo '<td>' . $rowAssigned["customer_type"] . '</td>';
-                                    echo '<td>' . $rowAssigned["jc_create_date"] . '</td>';
+                                    //echo '<td>' . $rowAssigned["jc_create_date"] . '</td>';
+                                    echo '<td style="color:' . $dateColor . ';">'. $rowAssigned["jc_create_date"] .'</td>';
                                     echo '<td>' . $rowAssigned["jc_assigned_to"] . '</td>';
                                     echo '<td>' . $rowAssigned["amount"]. '</td>';
                                 
